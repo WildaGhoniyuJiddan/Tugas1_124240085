@@ -1,8 +1,7 @@
 #include <iostream>
-#include <algorithm>
 using namespace std;
 
-const int mx = 100;
+const int mx = 100; //max data
 struct Barang {
     string nama;
     int jumlah;
@@ -11,7 +10,7 @@ struct Barang {
 
 Barang daftarBarang[mx];
 int jumlahBarang = 0;
-
+//Memasukkan data 
 void inputData() {
     int n;
     cout << "\nBerapa jumlah barang yang ingin ditambahkan: "; cin >> n;
@@ -26,7 +25,7 @@ void inputData() {
     jumlahBarang += n;
     system("cls");
 }
-
+//Menampilkan data
 void tampilkanData() {
     system("cls");
     if (jumlahBarang == 0) {
@@ -51,7 +50,7 @@ void tampilkanData() {
     }
 }
 
-
+//Sequential search berdasarkan harga
 void cariHarga() { //Sequential Search
     float hargaCari;
     cout << "\nMasukkan harga yang akan dicari: "; cin >> hargaCari;
@@ -65,7 +64,7 @@ void cariHarga() { //Sequential Search
     if (!ditemukan) cout << "Data tidak ditemukan.\n";
     system("pause");
 }
-
+//Binary search berdasarkan nama
 void cariNama() {
     string namac;
     cout << "Masukkan nama barang yang akan dicari: ";
@@ -97,7 +96,7 @@ void cariData() {
         system("cls");
         cout << "\nPilih metode pencarian:\n1. Berdasarkan Harga\n2. Berdasarkan Nama\n3. Kembali ke Menu\nPilih menu: ";
         cin >> pilihan;
-        cin.ignore();
+        cin.ignore();//biar ga ngebug stlah cin (;
         switch (pilihan) {
             case 1: cariHarga(); break;
             case 2: cariNama(); break;
@@ -133,6 +132,6 @@ int main() {
             case 4: cout << "Keluar dari program.\n"; return 0;
             default: cout << "Pilihan tidak valid.\n";
         }
-    } while (kembaliMenu());
+    } while (kembaliMenu());//looping ke menu utama sampai pilih keluar
     return 0;
 }
